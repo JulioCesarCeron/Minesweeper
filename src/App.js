@@ -1,25 +1,44 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from "react";
+import id from "shortid";
+import { ThemeProvider } from "styled-components";
+
+import { Row, Col, Container , Wrapper} from "./AppStyle";
 
 function App() {
+  const [grid, setGrid] = useState(initGrid());
+
+  function initGrid() {
+    let line = [];
+    let matrix = [];
+    for (let index = 0; index < 10; index++) {
+      line.push(0);
+    }
+
+    for (let index = 0; index < 10; index++) {
+      matrix.push(line);
+    }
+
+    return matrix;
+  }
+
+  /*   useEffect(() => {
+    initGrid();
+  }, []) */
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider theme={{}}>
+      <Wrapper>
+        <Container>
+          {grid.map(line => (
+            <Row key={id.generate()}>
+              {line.map(column => (
+                <Col key={id.generate()} />
+              ))}
+            </Row>
+          ))}
+        </Container>
+      </Wrapper>
+    </ThemeProvider>
   );
 }
 
