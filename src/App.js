@@ -1,25 +1,13 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import id from "shortid";
 import { ThemeProvider } from "styled-components";
 
-import { Row, Col, Container , Wrapper} from "./AppStyle";
+import { Row, Container, Wrapper } from "./AppStyle";
+import Item from "./components/Item";
+import { initGrid } from "./utils/initGrid";
 
 function App() {
-  const [grid, setGrid] = useState(initGrid());
-
-  function initGrid() {
-    let line = [];
-    let matrix = [];
-    for (let index = 0; index < 10; index++) {
-      line.push(0);
-    }
-
-    for (let index = 0; index < 10; index++) {
-      matrix.push(line);
-    }
-
-    return matrix;
-  }
+  const [grid] = useState(initGrid(10));
 
   /*   useEffect(() => {
     initGrid();
@@ -29,10 +17,15 @@ function App() {
     <ThemeProvider theme={{}}>
       <Wrapper>
         <Container>
-          {grid.map(line => (
+          {grid.map((line, indexLine) => (
             <Row key={id.generate()}>
-              {line.map(column => (
-                <Col key={id.generate()} />
+              {line.map((item, indexColumn) => (
+                <Item
+                  key={id.generate()}
+                  indexLine={indexLine}
+                  indexColumn={indexColumn}
+                  item={item}
+                />
               ))}
             </Row>
           ))}
