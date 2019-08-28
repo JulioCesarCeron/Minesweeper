@@ -19,6 +19,5 @@ export function initGrid(size) {
     matrix.push(generateLine(size));
   }
 
-  console.log("matrix", matrix);
   return matrix;
 }
