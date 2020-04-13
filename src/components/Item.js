@@ -1,17 +1,35 @@
 import React from "react";
-import { ItemSquare, ImgBomb} from "./ItemStyle";
+
 import bomb from "../assets/bomb-explosion.svg";
 
-export default function Item({ onTouchField, indexLine, indexColumn, item }) {
-  const bombImg = <ImgBomb src={bomb} alt='bomb' />;
-  const isBomb = item.bomb === 1;
-  const activeBombStyle = isBomb && item.active === 1;
+const Item = ({
+	onTouchField,
+	indexLine,
+	indexColumn,
+	item,
+}) => {
+  const bombImg = <img className="img" src={bomb} alt='bomb' />;
+	const isBomb = item.mine;
+	const isClear = item.status === 'clear';
+
   return (
-    <ItemSquare
+    <div
+			className={`item ${isClear ? 'item-clear' : 'item-hidden'}`}
       onClick={() => onTouchField(indexLine, indexColumn)}
-      isBomb={activeBombStyle}
     >
+
+			{isClear && (
+				<>
+					{item.mine ? (
+						bombImg
+					) : (
+						item.proximityMines === 0 ? '' : item.proximityMines
+					)}
+				</>
+			)}
       {item.active === 1 && (isBomb ? bombImg : item.bomb)}
-    </ItemSquare>
+    </div>
   );
 }
+
+export default Item;
