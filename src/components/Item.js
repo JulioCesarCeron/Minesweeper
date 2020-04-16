@@ -8,7 +8,7 @@ const Item = ({
 	indexColumn,
 	item,
 }) => {
-  const bombImg = <img className="img" src={bomb} alt='bomb' />;
+  const bombImg = <img className="img" src={bomb} height="30px" width="30px" alt='bomb' />;
 	const isBomb = item.mine;
 	const isClear = item.status === 'clear';
 
