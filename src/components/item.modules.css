@@ -1,0 +1,33 @@
+.item-hidden {
+	background: #1d1f27;
+}
+
+.item-clear {
+	background-color: #32333A;
+}
+
+.item-bomb {
+	background-color: #9a15159e;
+}
+
+.item {
+	cursor: pointer;
+  display: flex;
+	justify-content: center;
+	align-items: center;
+  flex-direction: column;
+  color: #c0c0c0;
+  width: 40px;
+  height: 40px;
+  margin: 0 1px;
+	font-size: 14px;
+}
+
+.item:hover {
+	background: #22242d;
+};
+
+.img {
+	height: 30px;
+  width: 30px;
+}

@@ -4,10 +4,10 @@
   "private": true,
   "homepage": "http://JulioCesarCeron.github.io/Minesweeper",
   "dependencies": {
+    "classnames": "^2.2.6",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
     "react-scripts": "3.1.1",
-    "styled-components": "^4.3.2",
     "typescript": "^3.8.3"
   },
   "scripts": {

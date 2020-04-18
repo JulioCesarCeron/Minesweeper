@@ -1,6 +1,9 @@
 import React from "react";
+import classesNames from 'classnames';
 
 import bomb from "../assets/bomb-explosion.svg";
+import './item.modules.css'; 
+
 
 const Item = ({
 	onTouchField,
@@ -8,13 +11,17 @@ const Item = ({
 	indexColumn,
 	item,
 }) => {
-  const bombImg = <img className="img" src={bomb} height="30px" width="30px" alt='bomb' />;
+  const bombImg = <img className="img" src={bomb} height="35px" width="35px" alt='bomb' />;
 	const isBomb = item.mine;
 	const isClear = item.status === 'clear';
 
   return (
     <div
-			className={`item ${isClear ? 'item-clear' : 'item-hidden'}`}
+			className={classesNames('item', {
+				'item-clear': isClear,
+				'item-hidden': !isClear,
+				'item-bomb': (isClear && isBomb)
+			})}
       onClick={() => onTouchField(indexLine, indexColumn)}
     >
 
