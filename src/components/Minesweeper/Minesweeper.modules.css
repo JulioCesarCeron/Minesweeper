@@ -1,0 +1,21 @@
+.wrapper {
+	height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.container {
+	margin: 0 auto;
+  text-align: center;
+}
+
+.row {
+	display: flex;
+  flex-direction: row;
+  color: #fff;
+  background: #2d2f35;
+  height: 40px;
+  padding: 1px;
+}

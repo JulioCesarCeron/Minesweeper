@@ -1,7 +1,7 @@
 import React from "react";
 import classesNames from 'classnames';
 
-import bomb from "../assets/bomb-explosion.svg";
+import bomb from "../../assets/bomb-explosion.svg";
 import './item.modules.css'; 
 
 
