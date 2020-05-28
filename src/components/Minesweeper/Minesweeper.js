@@ -9,7 +9,6 @@ import { PEERS } from '../../util/cosntants';
 const Minesweeper = () => {
 	const [blow] = useState(false);
 	const [boardField, setBoardField] = useState(new Board(10, 10));
-	console.log('boardField', boardField);
 	let { remainingCells } = boardField;
 
 	const restart = () => {
@@ -71,7 +70,22 @@ const Minesweeper = () => {
 		}
 	}
 
-  const touchField = (y, x) => {
+	const setFlag = (y, x) => {
+		const { cells } = boardField;
+		cells[y][x].status = cells[y][x].status === 'flag' ? 'open' : 'flag';
+
+		setBoardField({
+			...boardField,
+			cells
+		});
+	}
+
+  const touchField = (y, x, e) => {
+		if (e.button === 2) {
+			setFlag(y, x);
+			return;
+		}
+
 		const checkValue = checkCell(y, x); 
 		
 		if (checkValue === 'gameover') {
