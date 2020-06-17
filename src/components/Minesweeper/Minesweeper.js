@@ -7,12 +7,13 @@ import { PEERS } from '../../util/cosntants';
 
 
 const Minesweeper = () => {
-	const [blow] = useState(false);
+	const [blow, setBlow] = useState(false);
 	const [boardField, setBoardField] = useState(new Board(10, 10));
 	let { remainingCells } = boardField;
 
 	const restart = () => {
 		setBoardField(new Board(10, 15));
+		setBlow(false);
 	}
 
 	const showAllBombs = () => {
@@ -89,17 +90,20 @@ const Minesweeper = () => {
 		const checkValue = checkCell(y, x); 
 		
 		if (checkValue === 'gameover') {
-			alert('Game Over =(')
+			setBlow(true);
 		};
 
 		if (checkValue === 'win') {
-			alert('You Win =)')
+			alert('You Win =)');
+			setBlow(true);
 		};
 	}
 
   return (
 		<div className="wrapper">
-			{blow && <h3 style={{ marginTop: 0 }} >Fim do Jogo</h3>}
+			<div className="header-content">
+				{blow && <h1 className="game-over" >GAME OVER</h1>}
+			</div>
 			<div className="container">
 				{boardField.cells.map((line, y) =>  (
 						<div className="row" key={`y-${y}`}>
@@ -114,7 +118,9 @@ const Minesweeper = () => {
 							))}
 						</div>
 					))}
-					<button onClick={() => restart()} >restart</button>
+			</div>
+			<div className="group-button">
+				{blow && <button className="btn btn-3" onClick={() => restart()} >RETRY</button>}
 			</div>
 		</div>
   );
