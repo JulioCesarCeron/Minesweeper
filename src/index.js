@@ -1,6 +1,7 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.modules.css';
-import App from './App';
+import React from "react"
+import ReactDOM from "react-dom"
+import Minesweeper from "./components/Minesweeper/Minesweeper"
 
-ReactDOM.render(<App />, document.getElementById('root'));
+import "./index.modules.css"
+
+ReactDOM.render(<Minesweeper />, document.getElementById("root"))
