@@ -4,11 +4,15 @@
   "private": true,
   "homepage": "http://JulioCesarCeron.github.io/Minesweeper",
   "dependencies": {
+    "@types/jest": "^30.0.0",
+    "@types/node": "^24.5.2",
+    "@types/react": "^16.14.66",
+    "@types/react-dom": "^16.9.25",
     "classnames": "^2.2.6",
-    "react": "^16.9.0",
-    "react-dom": "^16.9.0",
-    "react-scripts": "3.1.1",
-    "typescript": "^3.8.3"
+    "react": "^16.14.0",
+    "react-dom": "^16.14.0",
+    "react-scripts": "5.0.1",
+    "typescript": "^5.9.2"
   },
   "scripts": {
     "start": "react-scripts start",

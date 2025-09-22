@@ -8,7 +8,9 @@ body {
   background: #1e1e1e;
 }
 
-html, body, #root {
+html,
+body,
+#root {
   height: 100%;
 }
 
