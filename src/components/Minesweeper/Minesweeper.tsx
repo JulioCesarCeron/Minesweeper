@@ -4,6 +4,7 @@ import "./Minesweeper.modules.css"
 import { Item } from "../Item"
 import { Board } from "../../models"
 import { PEERS } from "../../util/constants"
+import { AppVersion } from "../AppVersion"
 
 const Minesweeper = () => {
   const [blow, setBlow] = useState(false)
@@ -133,6 +134,10 @@ const Minesweeper = () => {
             RETRY
           </button>
         )}
+      </div>
+
+      <div className="footer">
+        <AppVersion />
       </div>
     </div>
   )
