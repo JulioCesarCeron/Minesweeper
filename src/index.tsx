@@ -1,8 +1,7 @@
 import React from "react"
-import ReactDOM from "react-dom/client"
+import ReactDOM from "react-dom"
 import Minesweeper from "./components/Minesweeper/Minesweeper"
 
 import "./index.modules.css"
 
-const root = ReactDOM.createRoot(document.getElementById("root") as HTMLElement)
-root.render(<Minesweeper />)
+ReactDOM.render(<Minesweeper />, document.getElementById("root"))
